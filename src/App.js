@@ -42,16 +42,16 @@ onClear = () => {
     this.setState({ input : ""});
   }
 
-add = val => {
+add = () => {
 this.state.previousNumber = this.state.input;
-this.setState({ input : this.state.input + val});
+this.setState({ input : ""});
 this.state.operator = "plus";
 
 }
 
 
-evaluate = ()=> {
-this.state.currentNumber = this.state.input ;
+evaluate = () => {
+this.state.currentNumber = this.state.input;
 if (this.state.operator == "plus" ){
 this.setState({
 input : parseInt(this.state.previousNumber) + parseInt(this.state.currentNumber)
@@ -79,24 +79,24 @@ input : parseInt(this.state.previousNumber) * parseInt(this.state.currentNumber)
 }
 }
 
-sub = val => {
+sub = () => {
 this.state.previousNumber = this.state.input;
-this.setState({ input :  this.state.input + val});
+this.setState({ input : ""});
 this.state.operator = "minus";
 }
-div = val => {
+div = () => {
 this.state.previousNumber = this.state.input;
-this.setState({ input :  this.state.input + val});
+this.setState({ input : ""});
 this.state.operator = "div";
 }
-mul = val => {
+mul = () => {
 this.state.previousNumber = this.state.input;
-this.setState({ input : this.state.input + val });
+this.setState({ input :""});
 this.state.operator = "mul";
 }
-mod = val => {
+mod = () => {
 this.state.previousNumber = this.state.input;
-this.setState({ input :  this.state.input + val});
+this.setState({ input :""});
 this.state.operator = "mod";
 }
 
@@ -109,10 +109,9 @@ render () {
     <Input>{this.state.input}</Input>
     </div>
     <div className="row"> 
-    <Button handleClick = { this.addToInput}>(</Button>
-    <Button handleClick = { this.addToInput}>)</Button>
-    <Button handleClick = { this.mod}>%</Button>
     <Button handleClick = { this.onClear}>AC</Button>
+    
+    <Button handleClick = { this.mod}>%</Button>
     </div>
     <div className="row"> 
     <Button handleClick = { this.addToInput}>7</Button>
@@ -133,9 +132,9 @@ render () {
     <Button handleClick = { this.add } >+</Button>
     </div>
     <div className="row"> 
-    <Button  handleClick={this.addDecimal}>.</Button>
+    <Button  handleClick = { this.addDecimal}>.</Button>
     <Button  handleClick = { this.addZeroToInput}>0</Button>
-    <Button handleClick = {this.evaluate} >=</Button>
+    <Button  handleClick = { this.evaluate}>=</Button>
     <Button handleClick = {this.sub}>-</Button>
     </div>
     </div>
